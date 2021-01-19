@@ -1,5 +1,6 @@
 import React from 'react';
-import { useAuth0 } from '../react-auth0-spa'
+import { Link } from 'react-router-dom';
+import { useAuth0 } from '../react-auth0-spa';
 
 const NavBar = () => {
     const {isAuthenticated, loginWithRedirect, logout} = useAuth0();
@@ -11,6 +12,13 @@ const NavBar = () => {
             )}
 
             {isAuthenticated && <button onClick ={() => logout()}> Log Out </button>}
+
+            {isAuthenticated &&(
+                <span>
+                    <Link to= "/">Home </Link>
+                    <Link to= "/profile">Profile</Link>
+                </span>
+            ) }
         </div>
     );
 };

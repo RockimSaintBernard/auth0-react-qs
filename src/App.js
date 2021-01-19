@@ -3,6 +3,7 @@ import NavBar from './components/NavBar'
 import {useAuth0} from "./react-auth0-spa"
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 import Profile from './components/Profile'
+import PrivateRoute from './components/PrivateRoute'
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
         </header>
         <Switch>
           <Route path="/" exact/>
-          <Route path="/profile" component={Profile}/>
+          <PrivateRoute path="/profile" component={Profile}/>
         </Switch>
       </BrowserRouter>
     </div>
